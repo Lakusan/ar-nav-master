@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  {{!-- OnsenUI --}}
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+   <script src="/javascripts/locations.js"></script>
+   <script src="/javascripts/HTTPreq.js"></script>
+   
+
+
+</head>
+
+<body>
+
+
+<ons-splitter>
+  <ons-splitter-side id="onsen-Menu" side="left" width="220px" collapse swipeable>
+    <ons-page>
+      <ons-list>
+        <ons-list-item onclick="history.back()" tappable>
+          Back
+        </ons-list-item>
+        <ons-list-item onclick="logout()" tappable>
+          Logout
+        </ons-list-item>
+        <ons-list-item onclick="fn.load('about.html')" tappable>
+          About
+        </ons-list-item>
+      </ons-list>
+    </ons-page>
+  </ons-splitter-side>
+  <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+</ons-splitter>
+
+
+
+<template id="home.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        {{title}}
+      </div>
+    </ons-toolbar>
+    <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
+  {{{ body }}}
+    </p>
+  </ons-page>
+</template>
+
+<template id="about.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        About
+      </div>
+    </ons-toolbar>
+    <h1>Thank you :)</h1>
+
+    Picture of github account image
+    Whoami
+
+    SRH Heidelberg link
+
+
+    Follow me on Github
+    https://github.com/Lakusan/ar-nav.git
+
+    Lakussan
+
+    SRH Heidelberg
+  </ons-page>
+</template>
+   
+ 
+  
+
+    <script>
+      window.fn = {};
+
+window.fn.open = function() {
+  var menu = document.getElementById('onsen-Menu');
+  menu.open();
+};
+function logout() {
+document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+history.back();
+
+}
+
+    </script>
+
+ 
+
+     
+</body>
+  
+
+
+</html>
